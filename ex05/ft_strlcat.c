@@ -6,11 +6,10 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 10:20:02 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/10 12:17:39 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/10 16:02:37 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
-#include <stdio.h>
+
 unsigned int	ft_sizeof(char *tab)
 {
 	unsigned int i;
@@ -21,12 +20,20 @@ unsigned int	ft_sizeof(char *tab)
 	return (i);
 }
 
+void			increment_ij(unsigned int *a, unsigned int *b)
+{
+	++*a;
+	++*b;
+}
+
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int i;
-	int j;
-	
+	unsigned int j;
+	unsigned int stock;
+
 	i = ft_sizeof(dest);
+	stock = i;
 	j = 0;
 	while (i < size)
 	{
@@ -38,24 +45,12 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		else
 		{
 			dest[i] = 0;
-			break;
+			break ;
 		}
-		i++;
-		j++;
+		increment_ij(&i, &j);
 	}
-	return(ft_sizeof(src) + ft_sizeof(dest));
-}
-
-int main(){
-char receveur[20] = "on m'appelle ";
-char envoyeur[100] = "l'ovni tututututu";
-
-char receveur2[20] = "on m'appelle ";
-char envoyeur2[100] = "l'ovni tututututu";
-ft_strlcat(receveur, envoyeur, 20);
-
-strlcat(receveur2, envoyeur2, 20);
-printf("%d, %d, %s\n", ft_strlcat(receveur, envoyeur, 20),ft_sizeof(envoyeur), receveur);
-printf("%lu, %d, %s", strlcat(receveur2, envoyeur2, 20),ft_sizeof(envoyeur2), receveur2);
-return 0;
+	if (stock < size)
+		return (stock + ft_sizeof(src));
+	else
+		return (ft_sizeof(src) + size);
 }

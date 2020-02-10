@@ -9,8 +9,7 @@
 /*   Updated: 2020/02/10 13:19:46 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <string.h>
+
 int		ft_strcmp(char *s1, char *s2)
 {
 	int i;
@@ -21,9 +20,9 @@ int		ft_strcmp(char *s1, char *s2)
 		if (!s2[i])
 			return (s1[i]);
 		if (s1[i] < s2[i])
-			break;
+			break ;
 		if (s1[i] > s2[i])
-			break;
+			break ;
 		i++;
 	}
 	if (s1[i])

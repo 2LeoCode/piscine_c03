@@ -6,11 +6,9 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 17:31:06 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/10 10:54:36 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/10 13:53:05 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int		ft_sizeof(char *tab)
 {
@@ -26,15 +24,16 @@ int		ft_sizeof(char *tab)
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int i;
-	int stock;
+	unsigned int i;
+	unsigned int j;
 
 	i = ft_sizeof(dest);
-	stock = nb + i;
-	while (i < stock)
+	j = 0;
+	while (j < nb)
 	{
-		dest[i] = src[i - nb - 1];
+		dest[i] = src[j];
 		i++;
+		j++;
 	}
 	dest[i] = 0;
 	return (dest);

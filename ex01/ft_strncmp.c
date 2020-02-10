@@ -22,9 +22,9 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n)
 		if (!s2[i])
 			return (s1[i]);
 		if (s1[i] < s2[i])
-			break;
+			break ;
 		if (s1[i] > s2[i])
-			break;
+			break ;
 		i++;
 	}
 	if (i < n)
