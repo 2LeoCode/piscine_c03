@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 17:31:06 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/10 10:54:36 by lsuardi          ###   ########.fr       */
+/*   Created: 2020/02/10 09:31:41 by lsuardi           #+#    #+#             */
+/*   Updated: 2020/02/10 10:15:48 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int		ft_sizeof(char *tab)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int i;
+	unsigned int i;
+	char *point;
 
+	point = 0;
 	i = 0;
-	while (tab[i])
-	{
-		i++;
+	if (*to_find){
+		while (str[i])
+		{
+			if (!point)
+			{
+				if (str[i] == *to_find)
+				{
+					point = &str[i];
+				}
+			}
+			i++;
+		}
 	}
-	return (i);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	int i;
-	int stock;
-
-	i = ft_sizeof(dest);
-	stock = nb + i;
-	while (i < stock)
+	else
 	{
-		dest[i] = src[i - nb - 1];
-		i++;
+		point = str;
 	}
-	dest[i] = 0;
-	return (dest);
+	return (point);
 }

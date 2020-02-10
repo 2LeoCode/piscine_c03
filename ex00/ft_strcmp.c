@@ -6,20 +6,11 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 11:48:03 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/09 11:48:29 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/10 13:19:46 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int		ft_sizeofstr(char *str)
-{
-	int i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
+#include <stdio.h>
+#include <string.h>
 int		ft_strcmp(char *s1, char *s2)
 {
 	int i;
@@ -27,16 +18,18 @@ int		ft_strcmp(char *s1, char *s2)
 	i = 0;
 	while (s1[i])
 	{
+		if (!s2[i])
+			return (s1[i]);
 		if (s1[i] < s2[i])
-			return (-1);
+			break;
 		if (s1[i] > s2[i])
-			return (1);
+			break;
 		i++;
 	}
-	if (ft_sizeofstr(s1) < ft_sizeofstr(s2))
-		return (-1);
-	if (ft_sizeofstr(s1) > ft_sizeofstr(s2))
-		return (1);
-	return (0);
+	if (s1[i])
+		return (s1[i] - s2[i]);
+	else if (s2[i])
+		return (0 - s2[i]);
+	else
+		return (0);
 }
-
