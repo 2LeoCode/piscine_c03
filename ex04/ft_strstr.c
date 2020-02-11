@@ -6,39 +6,41 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 09:31:41 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/10 21:41:54 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/11 17:31:52 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+typedef struct	s_racc
 {
-	unsigned int	i;
-	unsigned int	stock_i;
-	unsigned int	j;
-	char			*point;
+	int		i;
+	int		j;
+	int		stock_i;
+	char	*point;
+}				t_racc;
 
-	point = 0;
-	i = 0;
-	while (str[i])
+char			*ft_strstr(char *str, char *to_find)
+{
+	t_racc r;
+
+	r.point = 0;
+	r.i = -1;
+	while (str[++r.i])
 	{
-		if (!point)
+		if (!r.point)
 		{
-			if (str[i] == to_find[0])
+			if (str[r.i] == to_find[0])
 			{
-				stock_i = i;
-				j = 0;
-				while (to_find[j])
+				r.stock_i = r.i - 1;
+				r.j = -1;
+				while (to_find[++r.j])
 				{
-					if (to_find[j] != str[stock_i])
-						break;
-					stock_i++;
-					j++;
+					if (to_find[r.j] != str[++r.stock_i])
+						break ;
 				}
-				if (!to_find[j])
-					point = &str[i];
+				if (!to_find[r.j])
+					r.point = &str[r.i];
 			}
 		}
-		i++;
 	}
-	return (point);
+	return (r.point);
 }
