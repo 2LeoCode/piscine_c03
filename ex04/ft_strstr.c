@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 09:31:41 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/11 17:31:52 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/12 20:38:02 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char			*ft_strstr(char *str, char *to_find)
 {
 	t_racc r;
 
+	if (to_find[0] == 0)
+		return (0);
 	r.point = 0;
 	r.i = -1;
 	while (str[++r.i])
