@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 17:31:06 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/12 20:39:01 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/12 22:27:10 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		i++;
 	}
 	while (++i <= nb)
-		if(dest[i])
+		if (dest[i])
 			dest[i] = 0;
 	return (dest);
 }
