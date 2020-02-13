@@ -5,40 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 17:31:06 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/12 22:27:10 by lsuardi          ###   ########.fr       */
+/*   Created: 2020/02/13 20:51:16 by lsuardi           #+#    #+#             */
+/*   Updated: 2020/02/13 21:28:09 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sizeof(char *tab)
-{
-	int i;
+unsigned int	ft_strlen(char *str);
 
-	i = 0;
-	while (tab[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+char			*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	unsigned int i;
 	unsigned int j;
 
-	i = ft_sizeof(dest);
+	i = ft_strlen(dest);
 	j = -1;
-	while (++j < nb)
+	while(++j < nb)
 	{
-		if (src[j])
+		if(src[j])
 			dest[i] = src[j];
 		else
-			break ;
+		{
+			dest[i] = 0;
+			return (dest);
+		}
 		i++;
 	}
-	while (++i <= nb)
-		if (dest[i])
-			dest[i] = 0;
-	return (dest);
+	dest[i] = 0;
+	return(dest);
+}
+
+unsigned int	ft_strlen(char *str)
+{
+	unsigned int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

@@ -5,44 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 09:31:41 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/12 20:38:02 by lsuardi          ###   ########.fr       */
+/*   Created: 2020/02/13 21:32:15 by lsuardi           #+#    #+#             */
+/*   Updated: 2020/02/13 22:55:50 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct	s_racc
-{
-	int		i;
-	int		j;
-	int		stock_i;
-	char	*point;
-}				t_racc;
+int		ft_sizeof(char *str);
 
-char			*ft_strstr(char *str, char *to_find)
+char	*ft_strstr (char *str, char *to_find)
 {
-	t_racc r;
+	int i;
+	int j;
+	char *point;
 
-	if (to_find[0] == 0)
-		return (0);
-	r.point = 0;
-	r.i = -1;
-	while (str[++r.i])
+	i = -1;
+	point = 0;
+	while (1)
 	{
-		if (!r.point)
+		j = -1;
+		while (str[++i] != to_find[0])
+			if(!str[i])
+				return (point);
+		while (str[i] == to_find[++j])
 		{
-			if (str[r.i] == to_find[0])
-			{
-				r.stock_i = r.i - 1;
-				r.j = -1;
-				while (to_find[++r.j])
-				{
-					if (to_find[r.j] != str[++r.stock_i])
-						break ;
-				}
-				if (!to_find[r.j])
-					r.point = &str[r.i];
-			}
+			i++;
 		}
+		if (j == ft_sizeof(to_find))
+		{
+			point = &str[i - ft_sizeof(to_find)];
+			return (point);
+		}
+		else if (i >= ft_sizeof(str))
+			return (point);
 	}
-	return (r.point);
+}
+
+int		ft_sizeof(char *str)
+{
+	int i;
+
+	i = -1;
+	while (str[++i])
+		continue;
+	return (i);
 }
