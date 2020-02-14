@@ -6,11 +6,11 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 21:32:15 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/13 23:03:37 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/14 14:34:33 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sizeof(char *str);
+int		ft_strlen(char *str);
 
 char	*ft_strstr(char *str, char *to_find)
 {
@@ -18,34 +18,30 @@ char	*ft_strstr(char *str, char *to_find)
 	int		j;
 	char	*point;
 
-	i = -1;
+	i = 0;
 	point = 0;
-	while (1)
+	while (str[i])
 	{
-		j = -1;
-		while (str[++i] != to_find[0])
-			if (!str[i])
-				return (point);
-		while (str[i] == to_find[++j])
+		j = 0;
+		while (str[i + j] == to_find[j])
+			j++;
+		if (j >= ft_strlen(to_find))
 		{
-			i++;
-		}
-		if (j == ft_sizeof(to_find))
-		{
-			point = &str[i - ft_sizeof(to_find)];
+			if (str[ft_strlen(str)] == to_find[ft_strlen(to_find)])
+				point = &stri[i];
 			return (point);
 		}
-		else if (i >= ft_sizeof(str))
-			return (point);
+		i++;
 	}
+	return (point);
 }
 
-int		ft_sizeof(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
 
 	i = -1;
 	while (str[++i])
 		continue;
-	return (i);
+	return (i - 1);
 }
