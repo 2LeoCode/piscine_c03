@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 21:32:15 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/14 14:34:33 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/19 13:43:38 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strstr(char *str, char *to_find)
 		if (j >= ft_strlen(to_find))
 		{
 			if (str[ft_strlen(str)] == to_find[ft_strlen(to_find)])
-				point = &stri[i];
+				point = &str[i];
 			return (point);
 		}
 		i++;
