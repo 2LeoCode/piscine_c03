@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 21:32:15 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/24 16:37:01 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/24 17:05:47 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_strncmp(char *s1, char *s2, int n)
 char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i])
 	{
