@@ -6,7 +6,7 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 21:32:15 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/24 17:05:47 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/24 18:19:37 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*ft_strstr(char *str, char *to_find)
 	int	i;
 
 	i = 0;
+	if (to_find[0] == 0)
+		return (str);
 	while (str[i])
 	{
 		if (str[i] == to_find[0])
